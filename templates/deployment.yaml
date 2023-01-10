@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "fadc-k8s-ctrl.fullname" . }}
+  name: {{ include "fwb-k8s-ctrl-new.fullname" . }}
   labels:
-    {{- include "fadc-k8s-ctrl.labels" . | nindent 4 }}
+    {{- include "fwb-k8s-ctrl-new.labels" . | nindent 4 }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      {{- include "fadc-k8s-ctrl.selectorLabels" . | nindent 6 }}
+      {{- include "fwb-k8s-ctrl-new.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -16,7 +16,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "fadc-k8s-ctrl.selectorLabels" . | nindent 8 }}
+        {{- include "fwb-k8s-ctrl-new.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
