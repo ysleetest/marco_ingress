@@ -1,7 +1,7 @@
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: {{ include "fadc-k8s-ctrl.serviceAccountName" . }}
+  name: {{ include "fwb-k8s-ctrl-new.serviceAccountName" . }}
 rules:
 - apiGroups: [""]
   resources: ["pods", "services", "nodes", "endpoints", "secrets"]
@@ -37,12 +37,12 @@ rules:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: {{ include "fadc-k8s-ctrl.serviceAccountName" . }}
+  name: {{ include "fwb-k8s-ctrl-new.serviceAccountName" . }}
 subjects:
 - kind: ServiceAccount
-  name: {{ include "fadc-k8s-ctrl.serviceAccountName" . }}
+  name: {{ include "fwb-k8s-ctrl-new.serviceAccountName" . }}
   namespace: {{ .Release.Namespace }}
 roleRef:
   kind: ClusterRole
-  name: {{ include "fadc-k8s-ctrl.serviceAccountName" . }}
+  name: {{ include "fwb-k8s-ctrl-new.serviceAccountName" . }}
   apiGroup: rbac.authorization.k8s.io
