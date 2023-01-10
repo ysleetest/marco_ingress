@@ -5,7 +5,7 @@
 image:
   repository: yslesstest/fwb-k8s-ctrl-new
   pullPolicy: IfNotPresent
-  tag: "1.01-003"
+  tag: "v1.01-003"
 
 imagePullSecrets:
   - name: regcred
