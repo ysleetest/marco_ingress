@@ -4,7 +4,7 @@
 # FortiADC Ingress Controller image from Dockerhub.com
 image:
   repository: ysleetest/fwb-k8s-ctrl-new
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   tag: "1.01-002"
 
 imagePullSecrets:
