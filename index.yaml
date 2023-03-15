@@ -4,11 +4,11 @@ entries:
   - apiVersion: v2
     appVersion: 1.0.1
     created: "2021-08-23T08:21:32.197258021Z"
-    description: A Helm chart for FortiADC Ingress Controller
+    description: A Helm chart for FortiWeb Ingress Controller
     digest: 24aad544b3ac5bd48b358a642542ccd555af1d29c3002a98bf6c572f9283c83f
     name: fwb-k8s-ctrl-new
     type: application
     urls:
-    - https://github.com/ysleetest/marco_ingress/releases/latest/download/fortiadc-ingress.tar.gz
+    - https://github.com/ysleetest/marco_ingress/releases/latest/download/fortiweb-ingress.tar.gz
     version: 1.0.1
 generated: "2021-08-23T08:21:32.196501008Z"
