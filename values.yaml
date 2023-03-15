@@ -16,7 +16,7 @@ fullnameOverride: ""
 serviceAccount:
   create: true
   annotations: {}
-  name: "fortiadc-ingress"
+  name: "fortiweb-ingress"
 
 podAnnotations: {}
 
@@ -36,15 +36,15 @@ tolerations: []
 
 affinity: {}
 
-# Define Ingress Class for FortiADC Ingress Controller
+# Define Ingress Class for FortiWeb Ingress Controller
 controller:
   ingressClassResource:
-    name: "fadc-ingress-controller"
+    name: "fwb-ingress-controller"
     enabled: true
     default: true
-    controllerValue: "fortinet.com/fadc-ingress-controller"
+    controllerValue: "fortinet.com/fwb-ingress-controller"
 # You can decide parameters defined in annotation of Ingress to be optional or mandatory.
-# FortiADC Ingress Controller will check the parameter if it marks mandatory.
+# FortiWeb Ingress Controller will check the parameter if it marks mandatory.
 parameters:
   virtualServerNatSrcPool : "optional"
   virtualServerWafProfile : "optional"
