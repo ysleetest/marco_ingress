@@ -54,14 +54,14 @@ jobs:
       #    draft: false
       #    prerelease: false
       - name: create release package
-        run: tar zcvf ./fortiadc-ingress.tar.gz ./*
+        run: tar zcvf ./fortiweb-ingress.tar.gz ./*
       - name: upload release package
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{secrets.GITHUB_TOKEN}}
           release_name: Release ${{needs.tag.outputs.name}}
-          file: ./fortiadc-ingress.tar.gz
-          asset_name: fortiadc-ingress.tar.gz
+          file: ./fortiweb-ingress.tar.gz
+          asset_name: fortiweb-ingress.tar.gz
           tag: ${{needs.tag.outputs.name}}
           overwrite: true
           body: "FortiADC Ingress Release"
