@@ -4,7 +4,7 @@ on:
      - '*'
 jobs:
   build:
-    name: build-fortiadc-ingress
+    name: build-fortiweb-ingress
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
