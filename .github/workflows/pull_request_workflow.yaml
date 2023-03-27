@@ -50,7 +50,7 @@ jobs:
       #  with:
       #    tag_name: ${{needs.tag.outputs.name}}
       #    release_name: Release ${{needs.tag.outputs.name}}
-      #    body: "FortiADC Ingress Release"
+      #    body: "FortiWeb Ingress Release"
       #    draft: false
       #    prerelease: false
       - name: create release package
@@ -64,4 +64,4 @@ jobs:
           asset_name: fortiweb-ingress.tar.gz
           tag: ${{needs.tag.outputs.name}}
           overwrite: true
-          body: "FortiADC Ingress Release"
+          body: "FortiWeb Ingress Release"
