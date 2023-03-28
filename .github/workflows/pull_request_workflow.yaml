@@ -31,7 +31,7 @@ jobs:
         #run: echo "::set-output name=name::v$(date -d "$(git show -s --format=%ci)" +'%Y.%-m.%-d')"
         run: echo "::set-output name=name::v1.1.4"
   build:
-    name: build-fortiadc-ingress
+    name: build-fortiweb-ingress
     needs: [tag]
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
