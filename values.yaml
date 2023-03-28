@@ -1,7 +1,7 @@
 # Default values for fwbc-k8s-ctrl.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-# FortiADC Ingress Controller image from Dockerhub.com
+# FortiWeb Ingress Controller image from Dockerhub.com
 image:
   repository: ysleetest/fwb-k8s-ctrl-new
   pullPolicy: Always
