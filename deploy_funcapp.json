@@ -159,7 +159,7 @@
           "appSettings": [
             {
                 "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
-                "value": "[concat('InstrumentationKey=', resourceId('Microsoft.Insights/components', variables('hostingPlanName')).InstrumentationKey, ';IngestionEndpoint=https://', variables('location'),'.in.applicationinsights.azure.com/')]"
+                "value": "[concat('InstrumentationKey=', "[reference(concat('Microsoft.Insights/components/', variables('hostingPlanName'))).InstrumentationKey]", ';IngestionEndpoint=https://', variables('location'),'.in.applicationinsights.azure.com/')]"
             },
             {
               "name": "AzureWebJobsStorage",
