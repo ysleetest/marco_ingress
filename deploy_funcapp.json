@@ -111,6 +111,18 @@
       }
     },
     {
+      "apiVersion": "2015-05-01",
+      "type": "Microsoft.Insights/components",
+      "name": "[variables('hostingPlanName')]",
+      "location": "[variables('location')]",
+      "kind": "other",
+      "properties": {
+        "Application_Type": "web",
+        "Flow_Type": "Bluefield",
+        "Request_Source": "rest"
+      }
+    },    
+    {
       "apiVersion": "2015-08-01",
       "type": "Microsoft.Web/sites",
       "name": "[variables('functionAppName')]",
@@ -125,6 +137,10 @@
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "siteConfig": {
           "appSettings": [
+            {
+                "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
+                "value": "[concat('InstrumentationKey=', resourceId('Microsoft.Insights/components', variables('InstrumentationKey')), ';IngestionEndpoint=https://', variables('location'),'.in.applicationinsights.azure.com/')]"
+            },
             {
               "name": "AzureWebJobsStorage",
               "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
