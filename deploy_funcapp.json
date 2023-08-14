@@ -158,8 +158,16 @@
         "siteConfig": {
           "appSettings": [
             {
-                "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
-                "value": "[concat('InstrumentationKey=', '[reference(concat('Microsoft.Insights/components/', variables('hostingPlanName'))).InstrumentationKey]', ';IngestionEndpoint=https://', variables('location'),'.in.applicationinsights.azure.com/')]"
+                "name": "APPINSIGHTS_INSTRUMENTATIONKEY ",
+                "value": "[reference(concat('Microsoft.Insights/components/', variables('hostingPlanName'))).InstrumentationKey]"
+            },
+            {
+                "name": "ApplicationInsightsAgent_EXTENSION_VERSION",
+                "value": "~2",
+            },
+            {
+                "name": "XDT_MicrosoftApplicationInsights_Mode",
+                "value": "default",              
             },
             {
               "name": "AzureWebJobsStorage",
