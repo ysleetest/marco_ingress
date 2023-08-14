@@ -111,6 +111,25 @@
       }
     },
     {
+      "type": "Microsoft.OperationalInsights/workspaces",
+      "apiVersion": "2021-12-01-preview",
+      "name": "[variables('hostingPlanName')]",
+      "location": "[variables('location')]",
+      "properties": {
+        "sku": {
+          "name": "Standard"
+        },
+      }
+    },
+    {
+      "type": "Microsoft.OperationalInsights/workspaces/tables",
+      "apiVersion": "2021-12-01-preview",
+      "name": "[format('{0}/{1}', variables('hostingPlanName'), 'Heartbeat')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.OperationalInsights/workspaces', variables('hostingPlanName'))]"
+      ]
+    },    
+    {
       "apiVersion": "2015-05-01",
       "type": "Microsoft.Insights/components",
       "name": "[variables('hostingPlanName')]",
@@ -119,7 +138,8 @@
       "properties": {
         "Application_Type": "web",
         "Flow_Type": "Bluefield",
-        "Request_Source": "rest"
+        "Request_Source": "rest",
+        "WorkspaceResourceId": resourceId('Microsoft.OperationalInsights/workspaces', variables('hostingPlanName'))
       }
     },    
     {
@@ -139,7 +159,7 @@
           "appSettings": [
             {
                 "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
-                "value": "[concat('InstrumentationKey=', resourceId('Microsoft.Insights/components', variables('InstrumentationKey')), ';IngestionEndpoint=https://', variables('location'),'.in.applicationinsights.azure.com/')]"
+                "value": "[concat('InstrumentationKey=', resourceId('Microsoft.Insights/components', variables('hostingPlanName')).InstrumentationKey, ';IngestionEndpoint=https://', variables('location'),'.in.applicationinsights.azure.com/')]"
             },
             {
               "name": "AzureWebJobsStorage",
