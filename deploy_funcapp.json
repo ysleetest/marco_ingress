@@ -130,7 +130,7 @@
       ]
     },    
     {
-      "apiVersion": "2015-05-01",
+      "apiVersion": "2020-02-02",
       "type": "Microsoft.Insights/components",
       "name": "[variables('hostingPlanName')]",
       "location": "[variables('location')]",
