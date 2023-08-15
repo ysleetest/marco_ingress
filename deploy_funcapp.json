@@ -118,7 +118,7 @@
         "kind": "web",
         "properties": {
             "Application_Type": "web",
-            "ApplicationId": "[parameters('functionAppName')]"
+            "ApplicationId": "[variables('functionAppName')]"
         }
     },
     {
