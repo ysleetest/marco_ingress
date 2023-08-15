@@ -117,13 +117,13 @@
         "type": "Microsoft.OperationalInsights/workspaces",
         "properties": {
             "sku": {
-                "name": "Standard"
+                "name": "PerGB2018"
             }
         }
     },    
     {
         "type": "Microsoft.Insights/components",
-        "apiVersion": "2018-05-01-preview",
+        "apiVersion": "2020-02-02",
         "name": "[variables('hostingPlanName')]",
         "location": "[variables('location')]",
         "kind": "web",
