@@ -111,6 +111,17 @@
       }
     },
     {
+        "apiVersion": "2017-03-15-preview",
+        "name": "[variables('hostingPlanName')]",
+        "location": "[variables('location')]",
+        "type": "Microsoft.OperationalInsights/workspaces",
+        "properties": {
+            "sku": {
+                "name": "Standard"
+            }
+        }
+    },    
+    {
         "type": "Microsoft.Insights/components",
         "apiVersion": "2018-05-01-preview",
         "name": "[variables('hostingPlanName')]",
@@ -118,7 +129,8 @@
         "kind": "web",
         "properties": {
             "Application_Type": "web",
-            "ApplicationId": "[variables('functionAppName')]"
+            "ApplicationId": "[variables('functionAppName')]",
+            "WorkspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', variables('hostingPlanName'))]",
         }
     },
     {
