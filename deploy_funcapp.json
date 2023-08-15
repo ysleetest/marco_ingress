@@ -174,7 +174,7 @@
             },
             {
               "name": "WEBSITE_NODE_DEFAULT_VERSION",
-              "value": "16"
+              "value": "~16"
             },
             {
               "name": "FWB_BASE_CONFIG",
