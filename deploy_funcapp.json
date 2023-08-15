@@ -111,37 +111,16 @@
       }
     },
     {
-      "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2021-12-01-preview",
-      "name": "[variables('hostingPlanName')]",
-      "location": "[variables('location')]",
-      "properties": {
-        "sku": {
-          "name": "Standard"
-        },
-      }
+        "type": "Microsoft.Insights/components",
+        "apiVersion": "2018-05-01-preview",
+        "name": "[variables('hostingPlanName')]",
+        "location": "[variables('location')]",
+        "kind": "web",
+        "properties": {
+            "Application_Type": "web",
+            "ApplicationId": "[parameters('functionAppName')]"
+        }
     },
-    {
-      "type": "Microsoft.OperationalInsights/workspaces/tables",
-      "apiVersion": "2021-12-01-preview",
-      "name": "[format('{0}/{1}', variables('hostingPlanName'), 'Heartbeat')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.OperationalInsights/workspaces', variables('hostingPlanName'))]"
-      ]
-    },    
-    {
-      "apiVersion": "2020-02-02",
-      "type": "Microsoft.Insights/components",
-      "name": "[variables('hostingPlanName')]",
-      "location": "[variables('location')]",
-      "kind": "other",
-      "properties": {
-        "Application_Type": "web",
-        "Flow_Type": "Bluefield",
-        "Request_Source": "rest",
-        "WorkspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', variables('hostingPlanName'))]"
-      }
-    },    
     {
       "apiVersion": "2015-08-01",
       "type": "Microsoft.Web/sites",
@@ -158,16 +137,8 @@
         "siteConfig": {
           "appSettings": [
             {
-                "name": "APPINSIGHTS_INSTRUMENTATIONKEY ",
-                "value": "[reference(concat('Microsoft.Insights/components/', variables('hostingPlanName'))).InstrumentationKey]"
-            },
-            {
-                "name": "ApplicationInsightsAgent_EXTENSION_VERSION",
-                "value": "~2",
-            },
-            {
-                "name": "XDT_MicrosoftApplicationInsights_Mode",
-                "value": "default",              
+                "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                "value": "[reference(resourceId('Microsoft.Insights/components/', variables('appInsightName')), '2018-05-01-preview').InstrumentationKey]"
             },
             {
               "name": "AzureWebJobsStorage",
