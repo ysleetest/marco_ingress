@@ -194,7 +194,7 @@
             },
             {
               "name": "WEBSITE_RUN_FROM_PACKAGE",
-              "value": "[parameters('packageResUrl')]"
+              "value": "https://raw.githubusercontent.com/ysleetest/marco_ingress/main/fortiweb-autoscale-azure-funcapp.zip"
             },
             {
               "name": "SCALESET_DB_ACCOUNT",
