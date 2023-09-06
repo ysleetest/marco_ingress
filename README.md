@@ -139,7 +139,7 @@ As shown in above figure, the FortiWEB Ingress Controller satisfies an Ingress b
 
 To preserve the authentication securely on the Kubernetes cluster, you can save it with the Kubernetes secret. For example
 
-    kubectl create secret generic fad-login -n [namespace] --from-literal=username=admin --from-literal=password=[admin password]
+    kubectl create secret generic fwb-login1 -n [namespace] \ --from-literal=username=admin --from-literal=password=[admin password]
 
 The secret is named fad-login. This value will be specified in the Ingress annotation "fortiweb-login" for the FortiWEB Ingress Controller to get permission access on the FortiWEB.
 
