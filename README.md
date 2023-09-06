@@ -45,7 +45,7 @@ FortiWEB, as the Ingress-managed load balancer, not only provides flexibility in
         </tr>
         <tr>
             <td>FortiWEB</td>
-            <td colspan=4>6.3.6 - 7.4.x*</td>
+            <td colspan=4>6.3.6 - 7.4.x</td>
         </tr>
     </tbody>
 </table>
