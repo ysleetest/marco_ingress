@@ -8,7 +8,7 @@ For more much details, please refer to the [official document](https://docs.fort
 </br>
 </br>
 
-![FortiWEB Ingress Controller Overview](https://raw.githubusercontent.com/fortinet/fortiweb-ingress/main/figures/fwb-ingress-controller-overview.png)
+![FortiWEB Ingress Controller Overview]
 
 The FortiWEB Ingress Controller fulfills the Kubernetes Ingress resources and allows you to manage FortiWEB objects from Kubernetes. It is deployed in a container of a pod in a Kubernetes cluster. The list below outlines the major functionalities of the FortiWEB Ingress Controller: 
 
