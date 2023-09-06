@@ -103,7 +103,7 @@ To get the verbose output, add --debug option for all the Helm commands.
 ## Get Repo Information
    
 
-    helm repo add fortiweb-ingress-controller https://fortinet.github.io/fortiweb/ingress-controller/
+    helm repo add fortiweb-ingress-controller https://fortinet.github.io/fortiweb-ingress/
 
     helm repo update
 
