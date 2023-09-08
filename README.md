@@ -1,5 +1,4 @@
 
-
 # Fortiweb Ingress Controller
 Below content is the basic know-how and quick start for FortiWEB Ingress Controller.
 For more much details, please refer to the [official document](https://docs.fortinet.com/document/fortiweb/7.4.0/ingress-controller-installation-guide/742835/fortiweb-ingress-controller-overview).
@@ -36,6 +35,7 @@ FortiWEB, as the Ingress-managed load balancer, not only provides flexibility in
         <tr>
             <td>FortiWEB Ingress Controller</td>
             <td>1.0.0</td>
+            <td>1.0.1</td>
         </tr>
         <tr>
             <td>Kubernetes</td>
@@ -139,7 +139,7 @@ To preserve the authentication securely on the Kubernetes cluster, you can save 
 
     kubectl create secret generic fwb-login1 -n [namespace] \ --from-literal=username=admin --from-literal=password=[admin password]
 
-The secret is named fad-login. This value will be specified in the Ingress annotation "fortiweb-login" for the FortiWEB Ingress Controller to get permission access on the FortiWEB.
+The secret is named fwb-login1. This value will be specified in the Ingress annotation "fortiweb-login" for the FortiWEB Ingress Controller to get permission access on the FortiWEB.
 
 :warning:  The namespace of the authentication secret must be the same as the Ingress which references this authentication secret.
 
@@ -210,7 +210,7 @@ Download the simple-fanout-example.yaml
 
     curl -k https://raw.githubusercontent.com/fortinet/fortiweb-ingress/main/ingress_examples/simple-fanout-example.yaml -o simple-fanout-example.yaml
 
-Modify the Ingress Annotation in simple-fanout-example.yaml to accommodate to your environment, ex: fortiadc-ip, virtual-server-ip, etc.. Then deploy the ingress with kubectl command
+Modify the Ingress Annotation in simple-fanout-example.yaml to accommodate to your environment, ex: fortiweb-ip  etc.. Then deploy the ingress with kubectl command
 
     kubectl apply -f simple-fanout-example.yaml
 
