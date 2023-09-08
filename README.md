@@ -35,7 +35,7 @@ FortiWEB, as the Ingress-managed load balancer, not only provides flexibility in
         <tr>
             <td>FortiWEB Ingress Controller</td>
             <td>1.0.0</td>
-            <td>1.0.1</td>
+            <<td colspan=2>1.0.1</td>
         </tr>
         <tr>
             <td>Kubernetes</td>
