@@ -6,7 +6,7 @@ entries:
     created: "2023-10-03T13:41:56.772387916+08:00"
     description: A Helm chart for FortiWeb Ingress Controller
     digest: 846476f043d706c0516f2ad744996dbcde386ecfac8e50fdadabab4c84d3c8f9
-    kubeVersion: '>= 1.19.8-0, <= 1.28-2'
+    kubeVersion: '>= 1.19.8-0, <= 1.28.2'
     name: fwb-k8s-ctrl
     type: application
     urls:
