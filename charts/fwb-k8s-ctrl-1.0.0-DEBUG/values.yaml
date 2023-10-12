@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 # FortiADC Ingress Controller image from Dockerhub.com
 image:
-  repository: fortinet/fortiweb-ingress
+  repository: ysleetest/fwb-k8s-ctrl-new
   pullPolicy: IfNotPresent
   tag: "1.0.0-1"
 
