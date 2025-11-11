@@ -96,7 +96,7 @@
       "location": "[variables('location')]",
       "kind": "Storage",
       "properties": {
-        "supportsHttpsTrafficOnly": bool
+        "supportsHttpsTrafficOnly": true
       }
       "sku": {
         "name": "Standard_LRS"
