@@ -96,7 +96,7 @@
       "location": "[variables('location')]",
       "kind": "Storage",
       "properties": {
-        "supportsHttpsTrafficOnly": "true"
+        "supportsHttpsTrafficOnly": true
       }
       "sku": {
         "name": "Standard_LRS"
@@ -148,7 +148,7 @@
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
       ],
       "properties": {
-		"httpsOnly": "true",  
+		"httpsOnly": true,
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "siteConfig": {
           "appSettings": [
