@@ -95,6 +95,9 @@
       "apiVersion": "2016-12-01",
       "location": "[variables('location')]",
       "kind": "Storage",
+      "properties": {
+        "supportsHttpsTrafficOnly": bool
+      }
       "sku": {
         "name": "Standard_LRS"
       }
@@ -145,6 +148,7 @@
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
       ],
       "properties": {
+		"httpsOnly": true,  
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "siteConfig": {
           "appSettings": [
@@ -174,7 +178,7 @@
             },
             {
               "name": "WEBSITE_NODE_DEFAULT_VERSION",
-              "value": "~18"
+              "value": "~22"
             },
             {
               "name": "FWB_BASE_CONFIG",
