@@ -137,7 +137,7 @@
         }
     },
     {
-      "apiVersion": "2015-08-01",
+      "apiVersion": "2022-03-01",
       "type": "Microsoft.Web/sites",
       "name": "[variables('functionAppName')]",
       "kind": "functionapp",
