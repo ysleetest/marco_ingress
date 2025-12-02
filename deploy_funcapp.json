@@ -81,7 +81,7 @@
   "resources": [
     {
       "type": "Microsoft.DocumentDb/databaseAccounts",
-      "apiVersion": "2025-11-01-preview",
+      "apiVersion": "2025-10-15",
       "name": "[parameters('dbName')]",
       "location": "[variables('location')]",
       "properties": {
