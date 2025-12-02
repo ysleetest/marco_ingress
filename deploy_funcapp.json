@@ -86,7 +86,7 @@
       "location": "[variables('location')]",
       "properties": {
         "name": "[parameters('dbName')]",
-        "minimalTlsVersion": "Tls13",
+        "minimalTlsVersion": "Tls12",
         "databaseAccountOfferType": "Standard"
       }
     },
