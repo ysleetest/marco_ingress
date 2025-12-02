@@ -96,7 +96,7 @@
       "location": "[variables('location')]",
       "kind": "Storage",
       "properties": {
-        "supportsHttpsTrafficOnly": true
+        "supportsHttpsTrafficOnly": true,
 		"minimumTlsVersion": "TLS1_3"
       },
       "sku": {
