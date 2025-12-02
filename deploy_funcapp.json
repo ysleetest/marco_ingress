@@ -80,7 +80,7 @@
   },
   "resources": [
     {
-      "apiVersion": ""2022-11-15"",
+      "apiVersion": "2022-11-15",
       "type": "Microsoft.DocumentDb/databaseAccounts",
       "name": "[parameters('dbName')]",
       "location": "[variables('location')]",
