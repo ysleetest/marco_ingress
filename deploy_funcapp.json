@@ -97,7 +97,7 @@
       "kind": "Storage",
       "properties": {
         "supportsHttpsTrafficOnly": true,
-		"minimumTlsVersion": "TLS1_2"
+        "minimumTlsVersion": "TLS1_3"
       },
       "sku": {
         "name": "Standard_LRS"
