@@ -86,7 +86,6 @@
       "location": "[variables('location')]",
       "properties": {
         "name": "[parameters('dbName')]",
-        "minimalTlsVersion": "Tls12",
         "databaseAccountOfferType": "Standard"
       }
     },
@@ -97,8 +96,7 @@
       "location": "[variables('location')]",
       "kind": "Storage",
       "properties": {
-        "supportsHttpsTrafficOnly": true,
-        "minimumTlsVersion": "TLS1_2"
+        "supportsHttpsTrafficOnly": true
       },
       "sku": {
         "name": "Standard_LRS"
@@ -151,7 +149,6 @@
       ],
       "properties": {
         "httpsOnly": true,
-        "minTlsVersion": "1.2",  
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "siteConfig": {
           "appSettings": [
