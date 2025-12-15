@@ -103,13 +103,15 @@
       }
     },
     {
-      "apiVersion": "2015-04-01",
+      "apiVersion": "2022-03-01",
       "type": "Microsoft.Web/serverfarms",
       "name": "[variables('hostingPlanName')]",
       "location": "[variables('location')]",
+      "kind": "functionapp",
       "properties": {
         "name": "[variables('hostingPlanName')]",
         "computeMode": "Dynamic",
+        "reserved": true,
         "sku": "Dynamic"
       }
     },
@@ -140,7 +142,7 @@
       "apiVersion": "2022-03-01",
       "type": "Microsoft.Web/sites",
       "name": "[variables('functionAppName')]",
-      "kind": "functionapp",
+      "kind": "functionapp,linux",
       "location": "[variables('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
