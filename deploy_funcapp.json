@@ -103,7 +103,7 @@
       }
     },
     {
-      "apiVersion": "2022-03-01",
+      "apiVersion": "2015-04-01",
       "type": "Microsoft.Web/serverfarms",
       "name": "[variables('hostingPlanName')]",
       "location": "[variables('location')]",
