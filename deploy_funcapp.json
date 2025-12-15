@@ -107,7 +107,6 @@
       "type": "Microsoft.Web/serverfarms",
       "name": "[variables('hostingPlanName')]",
       "location": "[variables('location')]",
-      "kind": "functionapp",
       "properties": {
         "name": "[variables('hostingPlanName')]",
         "computeMode": "Dynamic",
