@@ -110,7 +110,6 @@
       "properties": {
         "name": "[variables('hostingPlanName')]",
         "computeMode": "Dynamic",
-        "reserved": true,
         "sku": "Dynamic"
       }
     },
