@@ -106,7 +106,7 @@
         "type": "Microsoft.Web/serverfarms",
         "apiVersion": "2023-12-01",
         "name": "[variables('hostingPlanName')]",
-        "location": "[parameters('location')]",
+        "location": "[variables('location')]",
         "sku": {
                 "tier": "FlexConsumption",
                 "name": "FC1"
