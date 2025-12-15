@@ -103,18 +103,19 @@
       }
     },
     {
-        "type": "Microsoft.Web/serverfarms",
-        "apiVersion": "2023-12-01",
-        "name": "[variables('hostingPlanName')]",
-        "location": "[variables('location')]",
-        "sku": {
-                "tier": "FlexConsumption",
-                "name": "FC1"
-        },
-        "kind": "functionapp",
-        "properties": {
-            "reserved": true
-        }
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2022-03-01",
+      "name": "[variables('hostingPlanName')]",
+      "location": "[variables('location')]",
+      "sku": {
+        "name": "Y1",
+        "tier": "Dynamic",
+        "size": "Y1",
+        "family": "Y"
+      },
+      "properties": {
+        "reserved": true
+      }
     },
     {
         "apiVersion": "2017-03-15-preview",
@@ -151,9 +152,11 @@
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
       ],
       "properties": {
+        "reserved": true,
         "httpsOnly": true,
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "siteConfig": {
+          "linuxFxVersion": "NODE|24",
           "appSettings": [
             {
                 "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
