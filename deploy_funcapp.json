@@ -65,7 +65,7 @@
     },
     "packageResUrl": {
       "type": "string",
-      "defaultValue": "https://github.com/fortinet/fortiweb-autoscale/releases/download/1.0.18/fortiweb-autoscale-azure-funcapp.zip",
+      "defaultValue": "https://github.com/fortinet/fortiweb-autoscale/releases/download/1.0.16/fortiweb-autoscale-azure-funcapp.zip",
       "metadata": {
         "description": "The public URL of package zip which contains the resource used to deploy the Function App."
       }
@@ -103,18 +103,14 @@
       }
     },
     {
+      "apiVersion": "2015-04-01",
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2022-03-01",
       "name": "[variables('hostingPlanName')]",
       "location": "[variables('location')]",
-      "sku": {
-        "name": "Y1",
-        "tier": "Dynamic",
-        "size": "Y1",
-        "family": "Y"
-      },
       "properties": {
-        "reserved": true
+        "name": "[variables('hostingPlanName')]",
+        "computeMode": "Dynamic",
+        "sku": "Dynamic"
       }
     },
     {
@@ -141,10 +137,10 @@
         }
     },
     {
-      "apiVersion": "2023-12-01",
+      "apiVersion": "2022-03-01",
       "type": "Microsoft.Web/sites",
       "name": "[variables('functionAppName')]",
-      "kind": "functionapp,linux",
+      "kind": "functionapp",
       "location": "[variables('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
@@ -152,11 +148,10 @@
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
       ],
       "properties": {
-        "reserved": true,
         "httpsOnly": true,
+        "minTlsVersion": "1.2",  
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "siteConfig": {
-          "linuxFxVersion": "NODE|24",
           "appSettings": [
             {
                 "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
@@ -184,11 +179,7 @@
             },
             {
               "name": "WEBSITE_NODE_DEFAULT_VERSION",
-              "value": "~24"
-            },
-            {
-              "name": "FUNCTIONS_NODE_BLOCK_ON_ENTRY_POINT_ERROR",
-              "value": "true"
+              "value": "~22"
             },
             {
               "name": "FWB_BASE_CONFIG",
@@ -207,7 +198,7 @@
               "value": "[parameters('restappSecret')]"
             },
             {
-              "name": "WEBSITE_RUN_FROM_PACKAGE",
+              "name": "WEBSITE_RUN_FROM_ZIP",
               "value": "[parameters('packageResUrl')]"
             },
             {
