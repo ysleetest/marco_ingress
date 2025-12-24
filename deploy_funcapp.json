@@ -108,15 +108,10 @@
       "type": "Microsoft.Web/serverfarms",
       "name": "[variables('hostingPlanName')]",
       "location": "[variables('location')]",
-      "sku": {
-        "name": "Y1",
-        "tier": "Dynamic",
-        "size": "Y1",
-        "family": "Y"
-      },		
       "properties": {
         "name": "[variables('hostingPlanName')]",
-		"reserved": true
+        "computeMode": "Dynamic",
+        "sku": "Dynamic"
       }
     },
     {
@@ -146,7 +141,7 @@
       "apiVersion": "2024-11-01",
       "type": "Microsoft.Web/sites",
       "name": "[variables('functionAppName')]",
-      "kind": "functionapp,linux",
+      "kind": "functionapp",
       "location": "[variables('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
@@ -158,7 +153,6 @@
         "minTlsVersion": "1.2",  
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
 		"siteProperties": {
-			"linuxFxVersion": "NODE|24",
             "metadata": null,
             "properties": [
                 {
