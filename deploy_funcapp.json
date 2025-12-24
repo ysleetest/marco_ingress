@@ -110,8 +110,8 @@
       "location": "[variables('location')]",
       "properties": {
         "name": "[variables('hostingPlanName')]",
-        "computeMode": "Dynamic",
-        "sku": "Dynamic"
+        "computeMode": null,
+        "sku": "FlexConsumption",
       }
     },
     {
@@ -138,10 +138,10 @@
         }
     },
     {
-      "apiVersion": "2022-03-01",
+      "apiVersion": "2024-11-01",
       "type": "Microsoft.Web/sites",
       "name": "[variables('functionAppName')]",
-      "kind": "functionapp",
+      "kind": "functionapp,linux",
       "location": "[variables('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
@@ -152,7 +152,23 @@
         "httpsOnly": true,
         "minTlsVersion": "1.2",  
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+		"siteProperties": {
+            "metadata": null,
+            "properties": [
+                {
+                    "name": "LinuxFxVersion",
+                    "value": ""
+                },
+                {
+                    "name": "WindowsFxVersion",
+                    "value": null
+                }
+            ],
+            "appSettings": null
+        },  
         "siteConfig": {
+		  "linuxFxVersion": "",
+          "windowsFxVersion": null,
           "appSettings": [
             {
                 "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
