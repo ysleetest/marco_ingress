@@ -110,8 +110,7 @@
       "location": "[variables('location')]",
       "properties": {
         "name": "[variables('hostingPlanName')]",
-        "computeMode": null,
-        "sku": "FlexConsumption",
+        "sku": "FlexConsumption"
       }
     },
     {
