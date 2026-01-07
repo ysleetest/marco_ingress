@@ -65,7 +65,7 @@
     },
     "packageResUrl": {
       "type": "string",
-      "defaultValue": "https://github.com/ysleetest/marco_ingress/raw/refs/heads/main/fortiweb-autoscale-azure-funcapp.zip",
+      "defaultValue": "https://github.com/fortinet/fortiweb-autoscale/releases/download/1.0.19/fortiweb-autoscale-azure-funcapp.zip",
       "metadata": {
         "description": "The public URL of package zip which contains the resource used to deploy the Function App."
       }
@@ -152,20 +152,6 @@
         "httpsOnly": true,
         "minTlsVersion": "1.2",  
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-		"siteProperties": {
-            "metadata": null,
-            "properties": [
-                {
-                    "name": "LinuxFxVersion",
-                    "value": ""
-                },
-                {
-                    "name": "WindowsFxVersion",
-                    "value": null
-                }
-            ],
-            "appSettings": null
-        },  
         "siteConfig": {
 		  "linuxFxVersion": "",
           "windowsFxVersion": null,
